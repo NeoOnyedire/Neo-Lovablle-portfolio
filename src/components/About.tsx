@@ -5,7 +5,7 @@ const About = () => {
     { name: "Python", icon: Terminal },
     { name: "Java", icon: Code2 },
     { name: "SQL", icon: Database },
-    { name: "Data Engineering", icon: Server },
+    { name: "Systems Integration", icon: Server },
   ];
 
   return (
@@ -26,7 +26,7 @@ const About = () => {
 
             <p className="text-muted-foreground text-lg leading-relaxed">
               As a WeThinkCode_ student, I've developed a strong foundation in software 
-              development with a particular passion for data engineering. I believe in 
+              development with a particular passion for systems integration. I believe in 
               writing clean, maintainable code and creating solutions that make a real impact.
             </p>
 
@@ -61,8 +61,8 @@ const About = () => {
             <div className="mt-8 p-6 rounded-2xl bg-secondary/50 border border-border">
               <h4 className="font-display font-semibold mb-3">Current Focus</h4>
               <p className="text-muted-foreground">
-                Building data pipelines, developing backend systems, and creating 
-                applications that leverage data for meaningful insights.
+                Connecting disparate systems, developing backend integrations, and creating 
+                seamless data flows between applications and databases.
               </p>
             </div>
           </div>
