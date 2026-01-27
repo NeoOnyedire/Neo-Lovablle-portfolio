@@ -3,9 +3,9 @@ import { Database, Code2, BarChart3, Workflow } from "lucide-react";
 const Services = () => {
   const services = [
     {
-      icon: Database,
-      title: "Data Engineering",
-      description: "Building robust data pipelines, ETL processes, and data warehousing solutions to help organizations leverage their data effectively.",
+      icon: Workflow,
+      title: "Systems Integration",
+      description: "Connecting disparate systems and creating seamless data flows between applications, APIs, and databases.",
       highlight: true,
     },
     {
@@ -15,15 +15,15 @@ const Services = () => {
       highlight: false,
     },
     {
-      icon: BarChart3,
-      title: "Data Analysis",
-      description: "Transforming raw data into actionable insights through SQL queries, data visualization, and statistical analysis.",
+      icon: Database,
+      title: "Database Management",
+      description: "Designing and managing databases, writing efficient SQL queries, and ensuring data integrity across systems.",
       highlight: false,
     },
     {
-      icon: Workflow,
-      title: "System Integration",
-      description: "Connecting disparate systems and creating seamless data flows between applications and databases.",
+      icon: BarChart3,
+      title: "API Development",
+      description: "Building and integrating RESTful APIs to enable communication between different software systems and platforms.",
       highlight: false,
     },
   ];
