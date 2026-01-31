@@ -9,6 +9,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
 
@@ -23,6 +24,7 @@ const Contact = () => {
         {
           from_name: formData.name,
           from_email: formData.email,
+          subject: formData.subject,
           message: formData.message,
         },
         "N26Qjyf-gR9TJIN-r"
@@ -33,7 +35,7 @@ const Contact = () => {
         description: "Thank you for reaching out. I'll get back to you soon!",
       });
 
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       console.error("EmailJS error:", error);
       toast({
@@ -147,6 +149,21 @@ const Contact = () => {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                   placeholder="john@example.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  required
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                  placeholder="Job Opportunity / Collaboration / General Inquiry"
                 />
               </div>
 
