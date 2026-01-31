@@ -10,7 +10,7 @@ const Hero = () => {
           <div className="space-y-8 animate-fade-up">
             <div className="space-y-2">
               <p className="text-primary font-medium tracking-wide uppercase text-sm">
-                Software Developer & Systems Integration
+                Software Engineer & Systems Engineer
               </p>
               <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
                 Neo<br />
@@ -60,10 +60,10 @@ const Hero = () => {
 
               {/* Floating Badges */}
               <div className="absolute -top-4 -right-4 badge-floating animation-delay-100">
-                Developer
+                Engineer
               </div>
               <div className="absolute bottom-8 -left-8 badge-floating animation-delay-300" style={{ animationDelay: '1s' }}>
-                Systems Integration
+                Systems Engineer
               </div>
               <div className="absolute top-1/2 -right-12 px-3 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium animate-float" style={{ animationDelay: '0.5s' }}>
                 WeThinkCode_
