@@ -1,25 +1,49 @@
 import { useState } from "react";
-import { Mail, Github, Linkedin, Send, MapPin } from "lucide-react";
+import { Mail, Github, Linkedin, Send, MapPin, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Create mailto link
-    const mailtoLink = `mailto:neomvubu1@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${formData.email}`;
-    window.location.href = mailtoLink;
-    
-    toast({
-      title: "Opening email client...",
-      description: "Your message is ready to send!",
-    });
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        "service_yz5euee",
+        "template_oeo8x2c",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        "N26Qjyf-gR9TJIN-r"
+      );
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialLinks = [
@@ -143,10 +167,20 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-primary text-primary-foreground font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-glow"
+                disabled={isSubmitting}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-primary text-primary-foreground font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-glow disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                Send Message
-                <Send className="h-4 w-4" />
+                {isSubmitting ? (
+                  <>
+                    Sending...
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="h-4 w-4" />
+                  </>
+                )}
               </button>
             </form>
           </div>
