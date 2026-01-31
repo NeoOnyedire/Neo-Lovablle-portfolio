@@ -50,7 +50,7 @@ const Hero = () => {
           {/* Profile Image */}
           <div className="relative flex justify-center lg:justify-end animate-slide-in-right">
             <div className="relative">
-              <div className="w-72 h-72 sm:w-96 sm:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-glow">
+              <div className="w-72 h-72 sm:w-96 sm:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-glow bg-secondary">
                 <img
                   src={profilePhoto}
                   alt="Neo Onyedire"
